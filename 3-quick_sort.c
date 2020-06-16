@@ -46,10 +46,9 @@ size_t decomp(int *array, size_t d, size_t f, size_t size)
 	if (array[f] < array[d])
 	{
 		permuter(array, f, d);
-		f = d;
 		print_array(array, size);
 	}
-	return (f);
+	return (d);
 }
 /**
  * tri_rapide - sorts an array of integers using the Quick sort algorithm
