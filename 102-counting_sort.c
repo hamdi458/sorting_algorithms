@@ -9,6 +9,8 @@ void counting_sort(int *array, size_t size)
 	size_t i;
 	int *tc, min, max, j, k;
 
+	if (!array || size < 2)
+		return;
 	min = array[0];
 	max = array[0];
 	for (i = 1; i < size; i++)
