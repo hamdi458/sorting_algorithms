@@ -20,16 +20,18 @@ void counting_sort(int *array, size_t size)
 
 	}
 	tc = malloc(sizeof(int) * (max + 1));
-	for (k = 0; k < max + 1; k++)
+	for (k = 0; k <= max; k++)
 		tc[k] = 0;
 	for (i = 0; i < size; i++)
-		tc[array[i] - min + 1] = tc[array[i] - min + 1] + 1;
+		tc[array[i]] = tc[array[i]] + 1;
 	i = 0;
-	for (k = 0; k <= max - min + 1; k++)
-		for (j = 0; j < tc[k]; j++)
-		{
-			array[i] = k + min - 1;
-			i++;
-		}
+	for (k = 0; k <= max + 1; k++)
+		tc[k] = tc[k] + tc[k - 1];
+	print_array(tc, max + 1);
+	for (j = 0; j < max; j++)
+	{
+		array[tc[i]] = j + 1;
+		i++;
+	}
 	print_array(tc, max + 1);
 }
