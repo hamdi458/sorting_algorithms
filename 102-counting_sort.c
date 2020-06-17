@@ -27,11 +27,11 @@ void counting_sort(int *array, size_t size)
 	i = 0;
 	for (k = 0; k <= max + 1; k++)
 		tc[k] = tc[k] + tc[k - 1];
-	print_array(tc, max + 1);
 	for (j = 0; j < max; j++)
 	{
 		array[tc[i]] = j + 1;
 		i++;
 	}
 	print_array(tc, max + 1);
+	free(tc);
 }
